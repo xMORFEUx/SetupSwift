@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Login_Activity"
+    android:fillViewport="true"
+    android:background="@color/white">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/coordinatorLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ImageView
+            android:contentDescription="@string/background"
+            android:id="@+id/imageView2"
+            android:layout_width="0dp"
+            android:layout_height="59dp"
+            android:background="@drawable/background_2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+<!--        <ImageView-->
+<!--            style="@style/Menu"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"/>-->
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="299dp"
+            android:layout_height="272dp"
+            android:layout_marginTop="110dp"
+            android:contentDescription="@string/logo"
+            android:src="@drawable/porco"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/imageView2" />
+
+        <View
+            android:id="@+id/containerCompoments"
+            style="@style/ContainerComponents"
+            android:layout_width="334dp"
+            android:layout_height="208dp"
+            android:layout_marginTop="200dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.526"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/logo" />
+
+        <TextView
+            android:id="@+id/text_cat"
+            android:layout_width="288dp"
+            android:layout_height="52dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/text_cat"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@id/bt_objetivo"
+            app:layout_constraintEnd_toEndOf="@id/containerCompoments"
+            app:layout_constraintHorizontal_bias="0.465"
+            app:layout_constraintStart_toStartOf="@id/containerCompoments" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/bt_objetivo"
+            style="@style/Button"
+            android:text="@string/Rendimento"
+            android:layout_marginBottom="70dp"
+            app:layout_constraintStart_toStartOf="@id/containerCompoments"
+            app:layout_constraintEnd_toEndOf="@id/containerCompoments"
+            app:layout_constraintBottom_toBottomOf="@id/containerCompoments"
+
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/bt_sair"
+            style="@style/Button"
+            android:layout_width="143dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/Sair"
+            app:layout_constraintEnd_toEndOf="@id/containerCompoments"
+            app:layout_constraintHorizontal_bias="0.492"
+            app:layout_constraintStart_toStartOf="@id/containerCompoments"
+            app:layout_constraintTop_toBottomOf="@id/bt_objetivo" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "17339028572",
+    "project_id": "cfpcontrole-financeiro-pessoal",
+    "storage_bucket": "cfpcontrole-financeiro-pessoal.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:17339028572:android:63948655ce85d5039f0299",
+        "android_client_info": {
+          "package_name": "com.example.cfp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "17339028572-3nodgcmcmncdmt9jfe8d7ku5idd36kum.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCff7fGdCtcCGy9lA6DjIoXFpePPo0dD2c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "17339028572-3nodgcmcmncdmt9jfe8d7ku5idd36kum.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

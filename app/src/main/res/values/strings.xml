@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">CFP</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="logo">logo</string>
+    <string name="user_name">Nome do Usuário</string>
+    <string name="background">background</string>
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="ObjetivoInicial">Informe sua renda mensal</string>
+    <string name="GastosFixos">Definir Gastos Fixos</string>
+    <string name="renda"><i>Informe sua renda mensal</i></string>
+    <string name="email">E-mail</string>
+    <string name="senha">Senha</string>
+    <string name="Cadastrar">Cadastre-se Gratuitamente</string>
+    <string name="Acessar_Google">Fazer Login</string>
+    <string name="Acessar">Acessar</string>
+    <string name="gasto"><i>Informe quanto pretende gastar por mês</i></string>
+    <string name="Categoria_par"><i>Defia seu Orçamento Fixo Mensal por Categoria</i></string>
+    <string name="Objetivo">Informe seu Objetivo de Gasto Mensal</string>
+    <string name="Rendimento">Definir Rendimento Mensal</string>
+    <string name="Categorias">Categorias de Gastos Fixos</string>
+    <string name="Categoria_Titulo"><b>CATEGORIAS</b></string>
+    <string name="rendamensal"><b>Definir Renda Mensal</b></string>
+    <string name="educacao">Educação</string>
+    <string name="alimentacao">Alimentação</string>
+    <string name="lazer">Lazer</string>
+    <string name="saude">Saúde</string>
+    <string name="transp">Transporte</string>
+    <string name="outros">Outros</string>
+    <string name="salvar">Salvar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="text_cat"><i>Para ajudar você precisamos definir um objetivo</i></string>
+    <string name="text_acesso">Já possui uma conta? <u>Logar</u></string>
+    <string name="text_cadastro">Primeiro Acesso? <u>Cadastre-se</u></string>
+    <string name="title_activity_categorias">Categorias_Activity</string>
+    <string name="novo_objt"><u>Novo Objetivo</u></string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="Sair">Sair</string>
+</resources>
