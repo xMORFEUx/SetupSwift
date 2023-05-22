@@ -7,14 +7,64 @@
     tools:context=".Categorias_Activity"
     android:background="@color/white">
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="0dp"
-        android:layout_height="59dp"
-        android:background="@drawable/background_2"
+    <View
+        android:id="@+id/containerCompoments_3"
+        android:layout_width="350dp"
+        android:layout_height="613dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/imageView2" />
+
+    <View
+        android:id="@+id/container_s"
+        android:layout_width="259dp"
+        android:layout_height="191dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/button_cat"
+        app:layout_constraintBottom_toBottomOf="@id/containerCompoments_3"
+        app:layout_constraintEnd_toEndOf="@id/containerCompoments_3"
+        app:layout_constraintStart_toStartOf="@id/containerCompoments_3"
+        android:visibility="gone"/>
+
+
+    <View
+        android:id="@+id/container_msg"
+        android:layout_width="195dp"
+        android:layout_height="104dp"
+        android:layout_marginBottom="144dp"
+        android:background="@drawable/edit_text"
+        android:elevation="2dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/containerCompoments_3"
+        app:layout_constraintEnd_toEndOf="@id/containerCompoments_3"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="@id/containerCompoments_3" />
+
+    <TextView
+        android:id="@+id/msg_conf"
+        android:layout_width="160dp"
+        android:layout_height="35dp"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="Novo saldo lançado com sucesso"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:elevation="2dp"
+        app:layout_constraintStart_toStartOf="@id/container_msg"
+        app:layout_constraintEnd_toEndOf="@id/container_msg"
+        app:layout_constraintTop_toTopOf="@id/container_msg"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/ValorSeek"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="@string/Categoria_Titulo"
+        android:textColor="@color/black"
+        android:textSize="27sp"
+        app:layout_constraintStart_toStartOf="@id/containerCompoments_3"
+        app:layout_constraintTop_toTopOf="@id/containerCompoments_3" />
 
     <TextView
         android:id="@+id/txt_2"
@@ -27,24 +77,134 @@
         app:layout_constraintStart_toStartOf="@id/containerCompoments_3"
         app:layout_constraintTop_toBottomOf="@id/ValorSeek"/>
 
-    <View
-        android:id="@+id/containerCompoments_3"
-        android:layout_width="350dp"
-        android:layout_height="613dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageView2" />
+    <TextView
+        android:id="@+id/txt_educacao"
+        android:layout_width="256.8dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="1dp"
+        android:background="@drawable/button_2"
+        android:gravity="center"
+        android:text="@string/educacao"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/container_s"
+        app:layout_constraintStart_toStartOf="@id/container_s"
+        app:layout_constraintTop_toTopOf="@id/container_s"
+        android:visibility="gone" />
 
     <TextView
-        android:id="@+id/ValorSeek"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:text="@string/Categoria_Titulo"
+        android:id="@+id/txt_alimentacao"
+        android:text="@string/alimentacao"
+        android:textColor="@color/white"
+        android:textSize="13sp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:layout_width="256.8dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="1dp"
+        android:background="@drawable/button_2"
+        app:layout_constraintStart_toStartOf="@id/container_s"
+        app:layout_constraintEnd_toEndOf="@id/container_s"
+        app:layout_constraintTop_toTopOf="@id/container_s"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/txt_lazer"
+        android:text="@string/lazer"
+        android:textColor="@color/white"
+        android:textSize="13sp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:layout_width="256.8dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="1dp"
+        android:background="@drawable/button_2"
+        app:layout_constraintStart_toStartOf="@id/container_s"
+        app:layout_constraintEnd_toEndOf="@id/container_s"
+        app:layout_constraintTop_toTopOf="@id/container_s"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/txt_saude"
+        android:text="@string/saude"
+        android:textColor="@color/white"
+        android:textSize="13sp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:layout_width="256.8dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="1dp"
+        android:background="@drawable/button_2"
+        app:layout_constraintStart_toStartOf="@id/container_s"
+        app:layout_constraintEnd_toEndOf="@id/container_s"
+        app:layout_constraintTop_toTopOf="@id/container_s"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/txt_transporte"
+        android:text="@string/transp"
+        android:textColor="@color/white"
+        android:textSize="13sp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:layout_width="256.8dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="1dp"
+        android:background="@drawable/button_2"
+        app:layout_constraintStart_toStartOf="@id/container_s"
+        app:layout_constraintEnd_toEndOf="@id/container_s"
+        app:layout_constraintTop_toTopOf="@id/container_s"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/txt_outros"
+        android:text="@string/outros"
+        android:textColor="@color/white"
+        android:textSize="13sp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:layout_width="256.8dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="1dp"
+        android:background="@drawable/button_2"
+        app:layout_constraintStart_toStartOf="@id/container_s"
+        app:layout_constraintEnd_toEndOf="@id/container_s"
+        app:layout_constraintTop_toTopOf="@id/container_s"
+        android:visibility="gone"/>
+
+    <EditText
+        android:id="@+id/container_s1"
+        android:background="#ECECEC"
+        android:layout_width="130dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="34dp"
+        android:hint="Valor do Lançamento"
+        android:inputType="number"
         android:textColor="@color/black"
-        android:textSize="27sp"
-        app:layout_constraintStart_toStartOf="@id/containerCompoments_3"
-        app:layout_constraintTop_toTopOf="@id/containerCompoments_3" />
+        android:textColorHint="@color/black"
+        android:textSize="10dp"
+        android:gravity="center"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="@id/container_s"
+        app:layout_constraintStart_toStartOf="@id/container_s"
+        app:layout_constraintTop_toBottomOf="@id/txt_educacao"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="0dp"
+        android:layout_height="59dp"
+        android:background="@drawable/background_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/ic_educ"
@@ -117,8 +277,6 @@
         app:layout_constraintStart_toEndOf="@id/ValorSeek"
         app:layout_constraintEnd_toEndOf="@id/containerCompoments_3"
         android:visibility="gone"/>
-
-
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/bt_educacao"
@@ -210,139 +368,6 @@
         app:layout_constraintTop_toBottomOf="@id/bt_saude"
         app:layout_constraintStart_toEndOf="@id/bt_transp"/>
 
-    <View
-        android:id="@+id/container_s"
-        android:layout_width="259dp"
-        android:layout_height="191dp"
-        android:layout_marginBottom="30dp"
-        android:background="@drawable/button_cat"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@id/containerCompoments_3"
-        app:layout_constraintEnd_toEndOf="@id/containerCompoments_3"
-        app:layout_constraintStart_toStartOf="@id/containerCompoments_3" />
-
-
-
-    <TextView
-        android:id="@+id/txt_educacao"
-        android:text="@string/educacao"
-        android:textColor="@color/white"
-        android:textSize="13sp"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:textAllCaps="false"
-        android:layout_width="130dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/button"
-        app:layout_constraintStart_toStartOf="@id/container_s"
-        app:layout_constraintEnd_toEndOf="@id/container_s"
-        app:layout_constraintTop_toTopOf="@id/container_s"
-        android:visibility="gone"/>
-
-    <TextView
-        android:id="@+id/txt_alimentacao"
-        android:text="@string/alimentacao"
-        android:textColor="@color/white"
-        android:textSize="13sp"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:textAllCaps="false"
-        android:layout_width="130dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/button"
-        app:layout_constraintStart_toStartOf="@id/container_s"
-        app:layout_constraintEnd_toEndOf="@id/container_s"
-        app:layout_constraintTop_toTopOf="@id/container_s"
-        android:visibility="gone"/>
-
-    <TextView
-        android:id="@+id/txt_lazer"
-        android:text="@string/lazer"
-        android:textColor="@color/white"
-        android:textSize="13sp"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:textAllCaps="false"
-        android:layout_width="130dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/button"
-        app:layout_constraintStart_toStartOf="@id/container_s"
-        app:layout_constraintEnd_toEndOf="@id/container_s"
-        app:layout_constraintTop_toTopOf="@id/container_s"
-        android:visibility="gone"/>
-
-    <TextView
-        android:id="@+id/txt_saude"
-        android:text="@string/saude"
-        android:textColor="@color/white"
-        android:textSize="13sp"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:textAllCaps="false"
-        android:layout_width="130dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/button"
-        app:layout_constraintStart_toStartOf="@id/container_s"
-        app:layout_constraintEnd_toEndOf="@id/container_s"
-        app:layout_constraintTop_toTopOf="@id/container_s"
-        android:visibility="gone"/>
-
-    <TextView
-        android:id="@+id/txt_transporte"
-        android:text="@string/transp"
-        android:textColor="@color/white"
-        android:textSize="13sp"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:textAllCaps="false"
-        android:layout_width="130dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/button"
-        app:layout_constraintStart_toStartOf="@id/container_s"
-        app:layout_constraintEnd_toEndOf="@id/container_s"
-        app:layout_constraintTop_toTopOf="@id/container_s"
-        android:visibility="gone"/>
-
-    <TextView
-        android:id="@+id/txt_outros"
-        android:text="@string/outros"
-        android:textColor="@color/white"
-        android:textSize="13sp"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:textAllCaps="false"
-        android:layout_width="130dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/button"
-        app:layout_constraintStart_toStartOf="@id/container_s"
-        app:layout_constraintEnd_toEndOf="@id/container_s"
-        app:layout_constraintTop_toTopOf="@id/container_s"
-        android:visibility="gone"/>
-
-    <EditText
-        android:id="@+id/container_s1"
-        style="@style/Edit_Text"
-        android:layout_width="130dp"
-        android:layout_height="34dp"
-        android:layout_marginTop="34dp"
-        android:hint="Valor do Lançamento"
-        android:inputType="number"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black"
-        android:textSize="10dp"
-        android:gravity="center"
-        android:textStyle="italic"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="@id/container_s"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="@id/container_s"
-        app:layout_constraintTop_toBottomOf="@id/txt_educacao" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/bt_salvar"
@@ -374,6 +399,19 @@
         app:layout_constraintEnd_toEndOf="@id/container_s"
         app:layout_constraintBottom_toBottomOf="@id/container_s"
         app:layout_constraintStart_toEndOf="@id/bt_salvar"
+        android:visibility="gone"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/bt_conf"
+        android:background="@drawable/button"
+        android:layout_marginTop="10dp"
+        android:layout_width="50dp"
+        android:layout_height="30dp"
+        android:text="OK"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="@id/container_msg"
+        app:layout_constraintEnd_toEndOf="@id/container_msg"
+        app:layout_constraintTop_toBottomOf="@id/msg_conf"
         android:visibility="gone"/>
 
 <!--    <TextView-->

@@ -22,7 +22,7 @@ public class Gastos_Activity extends AppCompatActivity {
 
     private ActivityGastosBinding binding;
 
-    private NumberFormat numberFormat = new DecimalFormat("#,###");
+    private NumberFormat numberFormat = new DecimalFormat("###,###,##");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

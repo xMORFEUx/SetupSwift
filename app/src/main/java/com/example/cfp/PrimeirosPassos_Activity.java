@@ -33,7 +33,6 @@ public class PrimeirosPassos_Activity extends AppCompatActivity {
             }
         });
 
-
         binding.btSair.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

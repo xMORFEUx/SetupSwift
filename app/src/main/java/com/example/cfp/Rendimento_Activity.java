@@ -35,7 +35,7 @@ public class Rendimento_Activity extends AppCompatActivity {
 
     private ActivityRendimentoBinding binding;
 
-    private NumberFormat numberFormat = new DecimalFormat("#,###");
+    private NumberFormat numberFormat = new DecimalFormat("###,###,##");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,7 +88,7 @@ public class Rendimento_Activity extends AppCompatActivity {
             public void onClick(View v) {
 
                 String rendaString = binding.ValorSeek.getText().toString();
-                double renda = Double.parseDouble(rendaString);
+                int renda = Integer.parseInt(rendaString);
 
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference reference = database.getReference("Usuarios");

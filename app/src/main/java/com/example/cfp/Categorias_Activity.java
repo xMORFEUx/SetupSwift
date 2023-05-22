@@ -3,6 +3,7 @@ package com.example.cfp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -11,11 +12,18 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
 import com.example.cfp.databinding.ActivityCategoriasBinding;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Categorias_Activity extends AppCompatActivity {
 
     private ActivityCategoriasBinding binding;
     private Animation fadeInAnimation;
+
+    private String instance = null;
 
     @SuppressLint("ResourceAsColor")
     @Override
@@ -64,6 +72,7 @@ public class Categorias_Activity extends AppCompatActivity {
                 binding.icSaude.setVisibility(View.INVISIBLE);
                 binding.icTransp.setVisibility(View.INVISIBLE);
                 binding.icOutros.setVisibility(View.INVISIBLE);
+                instance = "educacao";
 
             }
         });
@@ -104,7 +113,7 @@ public class Categorias_Activity extends AppCompatActivity {
                 binding.icSaude.setVisibility(View.INVISIBLE);
                 binding.icTransp.setVisibility(View.INVISIBLE);
                 binding.icOutros.setVisibility(View.INVISIBLE);
-
+                instance = "alimentacao";
             }
         });
         binding.btLazer.setOnClickListener(new View.OnClickListener() {
@@ -144,10 +153,12 @@ public class Categorias_Activity extends AppCompatActivity {
                 binding.icSaude.setVisibility(View.INVISIBLE);
                 binding.icTransp.setVisibility(View.INVISIBLE);
                 binding.icOutros.setVisibility(View.INVISIBLE);
+                instance = "lazer";
 
             }
         });
         binding.btSaude.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("UseCompatLoadingForDrawables")
             @Override
             public void onClick(View v) {
                 binding.btSaude.setBackgroundDrawable(getDrawable(R.drawable.button));
@@ -184,6 +195,7 @@ public class Categorias_Activity extends AppCompatActivity {
                 binding.icSaude.setAnimation(fadeInAnimation);
                 binding.icTransp.setVisibility(View.INVISIBLE);
                 binding.icOutros.setVisibility(View.INVISIBLE);
+                instance = "saude";
 
             }
         });
@@ -226,6 +238,7 @@ public class Categorias_Activity extends AppCompatActivity {
                 binding.icTransp.setVisibility(View.VISIBLE);
                 binding.icTransp.setAnimation(fadeInAnimation);
                 binding.icOutros.setVisibility(View.INVISIBLE);
+                instance = "transporte";
 
             }
         });
@@ -270,7 +283,112 @@ public class Categorias_Activity extends AppCompatActivity {
                 binding.icTransp.setVisibility(View.INVISIBLE);
                 binding.icOutros.setVisibility(View.VISIBLE);
                 binding.icOutros.setAnimation(fadeInAnimation);
+                instance = "outros";
 
+            }
+        });
+
+        binding.btSalvar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (instance == "educacao"){
+
+                    String gastoString = binding.containerS1.getText().toString();
+                    double gastoEdu = Double.parseDouble(gastoString);
+
+                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+                    DatabaseReference reference = database.getReference("Usuarios");
+
+                    Map<String, Object> update = new HashMap<>();
+                    update.put("gasto_edu",gastoEdu);
+
+                    reference.updateChildren(update);
+
+                }else if (instance == "alimentacao"){
+
+                    String gastoString = binding.containerS1.getText().toString();
+                    double gastoAlimentacao = Double.parseDouble(gastoString);
+
+                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+                    DatabaseReference reference = database.getReference("Usuarios");
+
+                    Map<String, Object> update = new HashMap<>();
+                    update.put("gasto_ali",gastoAlimentacao);
+
+                    reference.updateChildren(update);
+
+                }else if (instance == "lazer"){
+
+                    String gastoString = binding.containerS1.getText().toString();
+                    double gastoLazer = Double.parseDouble(gastoString);
+
+                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+                    DatabaseReference reference = database.getReference("Usuarios");
+
+                    Map<String, Object> update = new HashMap<>();
+                    update.put("gasto_laz",gastoLazer);
+
+                    reference.updateChildren(update);
+
+                }else if (instance == "saude"){
+
+                    String gastoString = binding.containerS1.getText().toString();
+                    double gastoSaude = Double.parseDouble(gastoString);
+
+                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+                    DatabaseReference reference = database.getReference("Usuarios");
+
+                    Map<String, Object> update = new HashMap<>();
+                    update.put("gasto_sau",gastoSaude);
+
+                    reference.updateChildren(update);
+
+                }else if (instance == "transporte"){
+
+                    String gastoString = binding.containerS1.getText().toString();
+                    double gastoTransporte = Double.parseDouble(gastoString);
+
+                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+                    DatabaseReference reference = database.getReference("Usuarios");
+
+                    Map<String, Object> update = new HashMap<>();
+                    update.put("gasto_tra",gastoTransporte);
+
+                    reference.updateChildren(update);
+
+                }else if (instance =="outros"){
+
+                    String gastoString = binding.containerS1.getText().toString();
+                    double gastoOutros = Double.parseDouble(gastoString);
+
+                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+                    DatabaseReference reference = database.getReference("Usuarios");
+
+                    Map<String, Object> update = new HashMap<>();
+                    update.put("gasto_out",gastoOutros);
+
+                    reference.updateChildren(update);
+
+                }
+
+                binding.msgConf.setVisibility(View.VISIBLE);
+                binding.msgConf.setAnimation(fadeInAnimation);
+                binding.containerMsg.setVisibility(View.VISIBLE);
+                binding.containerMsg.setAnimation(fadeInAnimation);
+                binding.btConf.setVisibility(View.VISIBLE);
+                binding.btConf.setAnimation(fadeInAnimation);
+
+            }
+        });
+
+        binding.btConf.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                binding.msgConf.setVisibility(View.INVISIBLE);
+                binding.containerMsg.setVisibility(View.INVISIBLE);
+                binding.btConf.setVisibility(View.INVISIBLE);
             }
         });
 
