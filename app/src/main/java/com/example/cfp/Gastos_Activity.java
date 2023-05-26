@@ -3,6 +3,7 @@ package com.example.cfp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -10,6 +11,8 @@ import android.view.View;
 import android.widget.SeekBar;
 
 import com.example.cfp.databinding.ActivityGastosBinding;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -20,9 +23,13 @@ import java.util.Map;
 
 public class Gastos_Activity extends AppCompatActivity {
 
+    DatabaseReference databaseReference;
+    String usuarioID;
+
+    String msg = "É necesário inserir algum valor para que possamos prosseguir.";
     private ActivityGastosBinding binding;
 
-    private NumberFormat numberFormat = new DecimalFormat("###,###,##");
+    private NumberFormat numberFormat = new DecimalFormat("##,###");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,18 +41,25 @@ public class Gastos_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String gastosString = binding.ValorSeek.getText().toString();
-                double gastos = Double.parseDouble(gastosString);
+                String value = binding.ValorSeek.toString();
 
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference reference = database.getReference("Usuarios");
+                try {
+                    usuarioID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                    String gastoString = binding.ValorSeek.getText().toString();
+                    double gastos = Double.parseDouble(gastoString);
 
-                Map<String, Object> update = new HashMap<>();
-                update.put("gastos",gastos);
+                    databaseReference = FirebaseDatabase.getInstance().getReference("Usuarios");
+                    databaseReference.child("UID").child("Objetivo_Gastos").setValue(gastos);
 
-                reference.updateChildren(update);
 
-                Intent intent = new Intent(Gastos_Activity.this,Categorias_Activity.class);
+                } catch (Exception e) {
+
+                }
+                Snackbar snackbar = Snackbar.make(v, msg, Snackbar.LENGTH_SHORT);
+                snackbar.setBackgroundTint(Color.WHITE);
+                snackbar.setTextColor(Color.BLACK);
+
+                Intent intent = new Intent(Gastos_Activity.this, Categorias_Activity.class);
                 startActivity(intent);
             }
         });
@@ -62,7 +76,6 @@ public class Gastos_Activity extends AppCompatActivity {
                     int value = Integer.parseInt(s.toString().replaceAll("[^\\^\\d]", ""));
                     binding.seekBar.setProgress(value);
                 }
-
             }
 
             @Override

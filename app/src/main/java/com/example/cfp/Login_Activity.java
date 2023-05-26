@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -37,6 +38,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -61,11 +64,24 @@ public class Login_Activity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private static final String TAG = "GOOGLE_SIGN_IN_TAG";
 
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        String acesso = getColoredSpanned("Primeiro Acesso? ", "#000000");
+        String cadastro = getColoredSpanned("Cadastre-se", "#0000ff");
+
+        binding.textTelaCadastro.setText(Html.fromHtml(acesso + cadastro));
+
+        String senha = getColoredSpanned("Esqueceu a senha? ", "#000000");
+        String alterar = getColoredSpanned("Alterar", "#0000ff");
+
+        binding.textEsqSenha.setText(Html.fromHtml(senha + alterar));
 
         GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
@@ -176,9 +192,22 @@ public class Login_Activity extends AppCompatActivity {
                         //get user info
                         Log.d(TAG, "onSuccess: Email "+email);
                         Log.d(TAG, "onSuccess: UID "+uid);
+                        Log.d(TAG, "onSuccess: Nem "+name);
+
+                        Map<String, Object> usuarios = new HashMap<>();
+                        usuarios.put("UID",uid);
+                        usuarios.put("nome",name);
+                        usuarios.put("email",email);
+
+                        firebaseDatabase = FirebaseDatabase.getInstance();
+                        databaseReference = firebaseDatabase.getReference();
+
+                        databaseReference.child("Usuarios").child("UID").setValue(usuarios);
 
                         //check if is a new or existing user
                         if (authResult.getAdditionalUserInfo().isNewUser()){
+
+
                             //new user - Account Created
                             Log.d(TAG, "onSuccess: Account Created...\n"+email);
                             Toast.makeText(Login_Activity.this, "Conta Criada!\n"+email, Toast.LENGTH_SHORT).show();
@@ -252,7 +281,7 @@ public class Login_Activity extends AppCompatActivity {
 
     private void TelaPrincipal(){
 
-        Intent intent = new Intent(Login_Activity.this, PrimeirosPassos_Activity.class);
+        Intent intent = new Intent(Login_Activity.this, Perfil_Activity.class);
         startActivity(intent);
         finish();
     }
@@ -264,5 +293,10 @@ public class Login_Activity extends AppCompatActivity {
         edit_senha = findViewById(R.id.edit_senha);
         bt_acessar = findViewById(R.id.bt_acessar);
         progressBar = findViewById(R.id.progressbar);
+    }
+
+    private String getColoredSpanned(String text, String color) {
+        String input = "<font color=" + color + "><u>" + text + "</u></font>";
+        return input;
     }
 }

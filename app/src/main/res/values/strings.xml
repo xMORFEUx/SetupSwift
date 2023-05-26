@@ -39,5 +39,7 @@
     <string name="novo_objt"><u>Novo Objetivo</u></string>
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
+    <string name="despesa_perfil"><u><i>Despesas por Categoria</i></u></string>
     <string name="Sair">Sair</string>
+    <string name="saldo_atual"><u><i>Saldo Atual</i></u></string>
 </resources>

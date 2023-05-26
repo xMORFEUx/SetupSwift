@@ -29,13 +29,15 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class Rendimento_Activity extends AppCompatActivity {
 
+    DatabaseReference databaseReference;
+
     String usuarioID;
 
     String msg = "É necesário inserir algum valor para que possamos prosseguir.";
 
     private ActivityRendimentoBinding binding;
 
-    private NumberFormat numberFormat = new DecimalFormat("###,###,##");
+    private NumberFormat numberFormat = new DecimalFormat("##,###");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,20 +89,24 @@ public class Rendimento_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String rendaString = binding.ValorSeek.getText().toString();
-                int renda = Integer.parseInt(rendaString);
+                    try {
+                        usuarioID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                        String rendaString = binding.ValorSeek.getText().toString();
+                        double renda = Double.parseDouble(rendaString);
 
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference reference = database.getReference("Usuarios");
+                        databaseReference = FirebaseDatabase.getInstance().getReference("Usuarios");
+                        databaseReference.child("UID").child("Renda_Mensal").setValue(renda);
 
-                Map<String, Object> update = new HashMap<>();
-                update.put("renda",renda);
+                    } catch (Exception e) {
 
-                reference.updateChildren(update);
+                    }
+                    Snackbar snackbar = Snackbar.make(v, msg, Snackbar.LENGTH_SHORT);
+                    snackbar.setBackgroundTint(Color.WHITE);
+                    snackbar.setTextColor(Color.BLACK);
 
-                Intent intent = new Intent(Rendimento_Activity.this, Gastos_Activity.class);
-                startActivity(intent);
-            }
+                    Intent intent = new Intent(Rendimento_Activity.this, Gastos_Activity.class);
+                    startActivity(intent);
+                }
         });
 
     }

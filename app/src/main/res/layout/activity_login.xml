@@ -50,7 +50,7 @@
             android:id="@+id/edit_email"
             style="@style/Edit_Text"
             android:hint="@string/email"
-            android:textColorHint="@color/black"
+            android:textColorHint="#8F8F8F"
             android:textColor="@color/black"
             android:drawableEnd="@drawable/ic_email"
             android:inputType="textEmailAddress"
@@ -63,7 +63,7 @@
             android:id="@+id/edit_senha"
             style="@style/Edit_Text"
             android:hint="@string/senha"
-            android:textColorHint="@color/black"
+            android:textColorHint="#8F8F8F"
             android:textColor="@color/black"
             android:inputType="textPassword"
             android:drawableEnd="@drawable/ic_lock"
@@ -106,13 +106,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
+            android:layout_marginRight="170dp"
             android:text="@string/text_cadastro"
             android:textColor="@color/black"
-            android:textSize="18sp"
+            android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/progressbar" />
+
+        <TextView
+            android:id="@+id/text_esq_senha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="Esqueceu a senha? Alterar"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/progressbar"
+            app:layout_constraintStart_toEndOf="@id/text_tela_cadastro"/>
 
 
 

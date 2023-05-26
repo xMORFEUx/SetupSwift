@@ -62,7 +62,7 @@
         android:background="@drawable/button"
         style="@style/SeekBar"
         android:id="@+id/seekBar"
-        android:max="2000000"
+        android:max="20000"
         app:layout_constraintStart_toStartOf="@id/containerCompoments_2"
         app:layout_constraintEnd_toEndOf="@id/containerCompoments_2"
         app:layout_constraintTop_toTopOf="@id/containerCompoments_2" />
@@ -95,7 +95,7 @@
         android:layout_width="290dp"
         android:layout_height="wrap_content"
         android:textStyle="bold"
-        android:text="0,00"
+        android:text=""
         android:layout_marginBottom="30dp"
         android:inputType="number"
         android:textColor="@color/black"

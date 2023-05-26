@@ -3,6 +3,7 @@ package com.example.cfp;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -52,7 +53,10 @@ public class Cadastro_Activity extends AppCompatActivity {
         binding = ActivityCadastroBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        String senha = getColoredSpanned("Já possui uma conta? ", "#000000");
+        String alterar = getColoredSpanned("Logar", "#0000ff");
 
+        binding.textTelaLogin.setText(Html.fromHtml(senha + alterar));
 
         getSupportActionBar().hide();
         IniciarComponentes();
@@ -153,39 +157,38 @@ public class Cadastro_Activity extends AppCompatActivity {
 
     private void SalvarDadosUsuario(){
 
+        usuarioID = FirebaseAuth.getInstance().getCurrentUser().getUid();
         String nome = edit_name.getText().toString();
         String email = edit_email_new.getText().toString();
-        double renda = 0;
-        double gastos = 0;
-        double gasto_edu = 0;
-        double gasto_ali = 0;
-        double gasto_laz = 0;
-        double gasto_sau = 0;
-        double gasto_tra = 0;
-        double gasto_out = 0;
+//        double renda = 0;
+//        double gastos = 0;
+//        double gasto_edu = 0;
+//        double gasto_ali = 0;
+//        double gasto_laz = 0;
+//        double gasto_sau = 0;
+//        double gasto_tra = 0;
+//        double gasto_out = 0;
 
         FirebaseDatabase db = FirebaseDatabase.getInstance();
 
         Map<String, Object> usuarios = new HashMap<>();
+        usuarios.put("UID",usuarioID);
         usuarios.put("nome",nome);
         usuarios.put("email",email);
-        usuarios.put("renda",renda);
-        usuarios.put("gastos",gastos);
-        usuarios.put("gasto_edu",gasto_edu);
-        usuarios.put("gasto_ali",gasto_ali);
-        usuarios.put("gasto_laz",gasto_laz);
-        usuarios.put("gasto_sau",gasto_sau);
-        usuarios.put("gasto_tra",gasto_tra);
-        usuarios.put("gasto_out",gasto_out);
-
-        usuarioID = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        usuarios.put("UID",usuarioID);
+//        usuarios.put("renda",renda);
+//        usuarios.put("gastos",gastos);
+//        usuarios.put("gasto_edu",gasto_edu);
+//        usuarios.put("gasto_ali",gasto_ali);
+//        usuarios.put("gasto_laz",gasto_laz);
+//        usuarios.put("gasto_sau",gasto_sau);
+//        usuarios.put("gasto_tra",gasto_tra);
+//        usuarios.put("gasto_out",gasto_out);
 
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference();
 
 
-        databaseReference.child("Usuarios").child(usuarioID).setValue(usuarios);
+        databaseReference.child("Usuarios").child("UID").setValue(usuarios);
 
     }
 
@@ -198,5 +201,10 @@ public class Cadastro_Activity extends AppCompatActivity {
         edit_senha_new_2 = findViewById(R.id.edit_senha_new_2);
         bt_cadastrar = findViewById(R.id.bt_cadastrar);
 
+    }
+
+    private String getColoredSpanned(String text, String color) {
+        String input = "<font color=" + color + "><u>" + text + "</u></font>";
+        return input;
     }
 }
