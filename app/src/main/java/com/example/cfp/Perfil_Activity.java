@@ -10,6 +10,7 @@ import android.os.Bundle;
 import com.example.cfp.databinding.ActivityPerfilBinding;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.components.LegendEntry;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
@@ -22,8 +23,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
-
+import java.util.Map;
 
 
 public class Perfil_Activity extends AppCompatActivity {
@@ -43,40 +46,41 @@ public class Perfil_Activity extends AppCompatActivity {
         setContentView(binding.getRoot());
         getSupportActionBar().hide();
 
+        pieChart = binding.pieChart;
+
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference categoriaRef = database.getReference("Usuarios").child("UID").child("Gastos_Educação");
+        DatabaseReference categoriaRef = database.getReference("Usuarios").child("UID").child("Gastos_Gerais");
 
         categoriaRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @SuppressLint("ResourceType")
+
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                double educacao = 0.0;
 
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    Object value = snapshot.getValue();
+                Map<String, Double> valoresPorCategoria = new HashMap<>();
 
-                    if (value instanceof Double) {
-                        double valor = (double) value;
-                        educacao += valor;
-                    } else if (value instanceof Long) {
-                        double valor = ((Long) value).doubleValue();
-                        educacao += valor;
+                // Iterar sobre as categorias
+                for (DataSnapshot categoriaSnapshot : dataSnapshot.getChildren()) {
+                    String categoria = categoriaSnapshot.getKey();
+                    double total = 0.0;
+
+                    // Iterar sobre os valores dentro da categoria
+                    for (DataSnapshot valorSnapshot : categoriaSnapshot.getChildren()) {
+                        double valor = valorSnapshot.getValue(Double.class);
+                        total += valor;
                     }
 
+                    // Adicionar o valor total ao mapa de valores por categoria
+                    valoresPorCategoria.put(categoria, total);
                 }
 
-                binding.value.setText(String.valueOf(educacao));
-                pieChart = binding.pieChart;
 
                 ArrayList<PieEntry> categorias = new ArrayList<>();
-                categorias.add(new PieEntry(200, "Educação"));
-                categorias.add(new PieEntry(330, "Alimentação"));
-                categorias.add(new PieEntry(700, "Lazer"));
-                categorias.add(new PieEntry(240, "Saúde"));
-                categorias.add(new PieEntry(120, "Transporte"));
-                categorias.add(new PieEntry(370, "Outros"));
-
                 PieDataSet pieDataSet = new PieDataSet(categorias, "");
+                for (Map.Entry<String, Double> entry : valoresPorCategoria.entrySet()) {
+                    String categoria = entry.getKey();
+                    double valor = entry.getValue();
+                    categorias.add(new PieEntry((float) valor, categoria));
+                }
                 pieDataSet.setColors(getResources().getColor(R.color.purple_200),
                         getResources().getColor(R.color.green),
                         getResources().getColor(R.color.red),
@@ -89,7 +93,6 @@ public class Perfil_Activity extends AppCompatActivity {
                 pieDataSet.setSliceSpace(1f);
 
                 PieData pieData = new PieData(pieDataSet);
-
                 pieChart.setData(pieData);
                 pieChart.getDescription().setEnabled(false);
                 pieChart.animate();
@@ -99,6 +102,7 @@ public class Perfil_Activity extends AppCompatActivity {
                 pieChart.setDrawEntryLabels(false);
                 pieChart.setHoleRadius(75);
                 pieChart.getDescription().setEnabled(false);
+                pieChart.getPaddingRight();
 
                 Legend legend = pieChart.getLegend();
                 legend.setForm(Legend.LegendForm.CIRCLE);
@@ -110,14 +114,15 @@ public class Perfil_Activity extends AppCompatActivity {
                 legend.setXEntrySpace(6f);
                 legend.setYEntrySpace(10f);
                 legend.setWordWrapEnabled(true);
-//                legend.setVerticalAlignment(Legend.LegendVerticalAlignment.CENTER);
-//                legend.setHorizontalAlignment(Legend.LegendHorizontalAlignment.RIGHT);
-                legend.setOrientation(Legend.LegendOrientation.VERTICAL);
+                legend.setVerticalAlignment(Legend.LegendVerticalAlignment.BOTTOM);
+                legend.setHorizontalAlignment(Legend.LegendHorizontalAlignment.LEFT);
+                legend.setOrientation(Legend.LegendOrientation.HORIZONTAL);
+
+
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                // Trate os erros, se necessário
             }
         });
     }

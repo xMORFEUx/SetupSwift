@@ -281,7 +281,7 @@ public class Login_Activity extends AppCompatActivity {
 
     private void TelaPrincipal(){
 
-        Intent intent = new Intent(Login_Activity.this, Perfil_Activity.class);
+        Intent intent = new Intent(Login_Activity.this, Categorias_Activity.class);
         startActivity(intent);
         finish();
     }

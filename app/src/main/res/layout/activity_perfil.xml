@@ -9,13 +9,14 @@
 
     <View
         android:id="@+id/containerCompoments_4"
-        android:layout_width="347dp"
-        android:layout_height="280dp"
+        android:layout_width="402dp"
+        android:layout_height="262dp"
         android:layout_marginTop="172dp"
         android:background="@drawable/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imageView2" />
+
 
     <View
         android:id="@+id/containerCompoments_5"
@@ -26,6 +27,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@id/containerCompoments_4" />
+
+    <View
+        android:id="@+id/containerCompoments_6"
+        android:layout_width="402dp"
+        android:layout_height="217dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/containerCompoments_4" />
 
     <TextView
         android:id="@+id/saldo_atual"
@@ -71,8 +82,8 @@
 
     <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/pieChart"
-        android:layout_width="322dp"
-        android:layout_height="220dp"
+        android:layout_width="387dp"
+        android:layout_height="214dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="44dp"
         app:layout_constraintEnd_toEndOf="@id/containerCompoments_4"
@@ -88,5 +99,25 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="407dp"
+        android:layout_height="160dp"
+        app:layout_constraintStart_toStartOf="@id/containerCompoments_6"
+        app:layout_constraintEnd_toEndOf="@id/containerCompoments_6"
+        app:layout_constraintBottom_toBottomOf="@id/containerCompoments_6">
+
+        <LinearLayout
+            android:id="@+id/categoryButtonsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Adicione os botões de categoria aqui -->
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
