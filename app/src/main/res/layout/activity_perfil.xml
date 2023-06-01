@@ -9,10 +9,10 @@
 
     <View
         android:id="@+id/containerCompoments_4"
-        android:layout_width="402dp"
-        android:layout_height="262dp"
+        android:layout_width="388dp"
+        android:layout_height="260dp"
         android:layout_marginTop="172dp"
-        android:background="@drawable/button"
+        android:background="@color/blue_1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imageView2" />
@@ -27,16 +27,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@id/containerCompoments_4" />
-
-    <View
-        android:id="@+id/containerCompoments_6"
-        android:layout_width="402dp"
-        android:layout_height="217dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/button_2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/containerCompoments_4" />
 
     <TextView
         android:id="@+id/saldo_atual"
@@ -80,10 +70,19 @@
         app:layout_constraintStart_toStartOf="@id/containerCompoments_4"
         app:layout_constraintTop_toTopOf="@id/containerCompoments_4" />
 
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="45dp"
+        android:text="Despesas Fixas"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="@id/scrollView"
+        app:layout_constraintEnd_toEndOf="@id/scrollView"
+        app:layout_constraintTop_toTopOf="@id/scrollView"/>
+
     <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/pieChart"
-        android:layout_width="387dp"
-        android:layout_height="214dp"
+        android:layout_width="388dp"
+        android:layout_height="210dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="44dp"
         app:layout_constraintEnd_toEndOf="@id/containerCompoments_4"
@@ -102,16 +101,20 @@
 
     <ScrollView
         android:id="@+id/scrollView"
-        android:layout_width="407dp"
-        android:layout_height="160dp"
-        app:layout_constraintStart_toStartOf="@id/containerCompoments_6"
-        app:layout_constraintEnd_toEndOf="@id/containerCompoments_6"
-        app:layout_constraintBottom_toBottomOf="@id/containerCompoments_6">
+        android:layout_width="388dp"
+        android:layout_height="222dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/blue_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pieChart">
+
 
         <LinearLayout
-            android:id="@+id/categoryButtonsLayout"
+            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
             android:orientation="vertical">
 
             <!-- Adicione os botões de categoria aqui -->

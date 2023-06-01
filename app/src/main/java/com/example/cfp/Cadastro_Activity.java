@@ -24,8 +24,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -47,6 +50,8 @@ public class Cadastro_Activity extends AppCompatActivity {
     String[] mensagens = {"Preencha todos os Campos!", "Cadastro Realizado com Sucesso!", "As senhas digitadas não são iguais!"};
     String usuarioID;
 
+    private DatabaseReference usuariosRef;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +65,7 @@ public class Cadastro_Activity extends AppCompatActivity {
 
         getSupportActionBar().hide();
         IniciarComponentes();
+
 
         bt_cadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -157,9 +163,17 @@ public class Cadastro_Activity extends AppCompatActivity {
 
     private void SalvarDadosUsuario(){
 
-        usuarioID = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        String nome = edit_name.getText().toString();
-        String email = edit_email_new.getText().toString();
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        usuariosRef = database.getReference("Usuarios");
+
+        usuariosRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                long users = dataSnapshot.getChildrenCount();
+
+                usuarioID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                String nome = edit_name.getText().toString();
+                String email = edit_email_new.getText().toString();
 //        double renda = 0;
 //        double gastos = 0;
 //        double gasto_edu = 0;
@@ -169,12 +183,12 @@ public class Cadastro_Activity extends AppCompatActivity {
 //        double gasto_tra = 0;
 //        double gasto_out = 0;
 
-        FirebaseDatabase db = FirebaseDatabase.getInstance();
+                FirebaseDatabase db = FirebaseDatabase.getInstance();
 
-        Map<String, Object> usuarios = new HashMap<>();
-        usuarios.put("UID",usuarioID);
-        usuarios.put("nome",nome);
-        usuarios.put("email",email);
+                Map<String, Object> usuarios = new HashMap<>();
+                usuarios.put("UID",usuarioID);
+                usuarios.put("nome",nome);
+                usuarios.put("email",email);
 //        usuarios.put("renda",renda);
 //        usuarios.put("gastos",gastos);
 //        usuarios.put("gasto_edu",gasto_edu);
@@ -184,11 +198,20 @@ public class Cadastro_Activity extends AppCompatActivity {
 //        usuarios.put("gasto_tra",gasto_tra);
 //        usuarios.put("gasto_out",gasto_out);
 
-        firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference();
+                firebaseDatabase = FirebaseDatabase.getInstance();
+                databaseReference = firebaseDatabase.getReference();
 
 
-        databaseReference.child("Usuarios").child("UID").setValue(usuarios);
+                databaseReference.child("Usuarios").child(usuarioID).setValue(usuarios);
+            }
+
+
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
     }
 

@@ -90,12 +90,12 @@ public class Rendimento_Activity extends AppCompatActivity {
             public void onClick(View v) {
 
                     try {
-                        usuarioID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                        usuarioID =FirebaseAuth.getInstance().getCurrentUser().getUid();
                         String rendaString = binding.ValorSeek.getText().toString();
                         double renda = Double.parseDouble(rendaString);
 
                         databaseReference = FirebaseDatabase.getInstance().getReference("Usuarios");
-                        databaseReference.child("UID").child("Renda_Mensal").setValue(renda);
+                        databaseReference.child(usuarioID).child("Renda_Mensal").setValue(renda);
 
                     } catch (Exception e) {
 

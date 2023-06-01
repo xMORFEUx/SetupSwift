@@ -5,7 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.TypedValue;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.cfp.databinding.ActivityPerfilBinding;
 import com.github.mikephil.charting.charts.PieChart;
@@ -16,6 +20,7 @@ import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.android.material.progressindicator.CircularProgressIndicator;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -33,10 +38,13 @@ public class Perfil_Activity extends AppCompatActivity {
 
     private PieChart pieChart;
     private CircularProgressIndicator circularProgressIndicator;
+    private LinearLayout linearLayout;
 
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
     private ActivityPerfilBinding binding;
+
+    String usuarioID;
 
 
     @Override
@@ -46,10 +54,12 @@ public class Perfil_Activity extends AppCompatActivity {
         setContentView(binding.getRoot());
         getSupportActionBar().hide();
 
+        linearLayout = binding.linearLayout;
         pieChart = binding.pieChart;
 
+        usuarioID = FirebaseAuth.getInstance().getCurrentUser().getUid();
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference categoriaRef = database.getReference("Usuarios").child("UID").child("Gastos_Gerais");
+        DatabaseReference categoriaRef = database.getReference("Usuarios").child(usuarioID).child("Gastos_Gerais");
 
         categoriaRef.addListenerForSingleValueEvent(new ValueEventListener() {
 
@@ -118,6 +128,43 @@ public class Perfil_Activity extends AppCompatActivity {
                 legend.setHorizontalAlignment(Legend.LegendHorizontalAlignment.LEFT);
                 legend.setOrientation(Legend.LegendOrientation.HORIZONTAL);
 
+
+                usuarioID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                DatabaseReference userRef = FirebaseDatabase.getInstance().getReference().child("Usuarios").child(usuarioID);
+                DatabaseReference gastosGeraisRef = userRef.child("Gastos_Gerais");
+
+                gastosGeraisRef.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        linearLayout.removeAllViews();
+
+                        for (DataSnapshot categorySnapshot : dataSnapshot.getChildren()){
+                            String categoryKey = categorySnapshot.getKey();
+                            Long valueLong = categorySnapshot.getValue(Long.class);
+
+                            String value = String.valueOf(valueLong);
+
+                            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                                    LinearLayout.LayoutParams.WRAP_CONTENT
+                            );
+                            TextView textView = new TextView(Perfil_Activity.this);
+                            textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+                            textView.setTextColor(Color.WHITE);
+                            textView.setBackgroundColor(Color.LTGRAY);
+                            textView.setText(categoryKey + ": " + value);
+                            layoutParams.setMargins(0, 0, 0, 16);
+                            textView.setLayoutParams(layoutParams);
+                            linearLayout.addView(textView);
+
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
 
             }
 

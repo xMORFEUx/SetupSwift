@@ -108,7 +108,7 @@ public class Categorias_Activity extends AppCompatActivity {
 
 
                     databaseReference = FirebaseDatabase.getInstance().getReference("Usuarios");
-                    databaseReference.child("UID").child("Gastos_Gerais").child("Educação").push().setValue(gastoEdu);
+                    databaseReference.child(usuarioID).child("Gastos_Gerais").child("Educação").setValue(gastoEdu);
 
                 }else if (instance == "alimentacao"){
 
@@ -117,7 +117,7 @@ public class Categorias_Activity extends AppCompatActivity {
                     double gastoAlimentacao = Double.parseDouble(gastoString);
 
                     databaseReference = FirebaseDatabase.getInstance().getReference("Usuarios");
-                    databaseReference.child("UID").child("Gastos_Gerais").child("Alimentação").push().setValue(gastoAlimentacao);
+                    databaseReference.child(usuarioID).child("Gastos_Gerais").child("Alimentação").setValue(gastoAlimentacao);
 
 
 
@@ -128,7 +128,7 @@ public class Categorias_Activity extends AppCompatActivity {
                     double gastoLazer = Double.parseDouble(gastoString);
 
                     databaseReference = FirebaseDatabase.getInstance().getReference("Usuarios");
-                    databaseReference.child("UID").child("Gastos_Gerais").child("Lazer").push().setValue(gastoLazer);
+                    databaseReference.child(usuarioID).child("Gastos_Gerais").child("Lazer").setValue(gastoLazer);
 
                 }else if (instance == "saude"){
 
@@ -137,7 +137,7 @@ public class Categorias_Activity extends AppCompatActivity {
                     double gastoSaude = Double.parseDouble(gastoString);
 
                     databaseReference = FirebaseDatabase.getInstance().getReference("Usuarios");
-                    databaseReference.child("UID").child("Gastos_Gerais").child("Saude").push().setValue(gastoSaude);
+                    databaseReference.child(usuarioID).child("Gastos_Gerais").child("Saude").setValue(gastoSaude);
 
                 }else if (instance == "transporte"){
 
@@ -146,7 +146,7 @@ public class Categorias_Activity extends AppCompatActivity {
                     double gastoTransporte = Double.parseDouble(gastoString);
 
                     databaseReference = FirebaseDatabase.getInstance().getReference("Usuarios");
-                    databaseReference.child("UID").child("Gastos_Gerais").child("Transporte").push().setValue(gastoTransporte);
+                    databaseReference.child(usuarioID).child("Gastos_Gerais").child("Transporte").setValue(gastoTransporte);
 
                 }else if (instance =="outros"){
 
@@ -155,7 +155,7 @@ public class Categorias_Activity extends AppCompatActivity {
                     double gastoOutros = Double.parseDouble(gastoString);
 
                     databaseReference = FirebaseDatabase.getInstance().getReference("Usuarios");
-                    databaseReference.child("UID").child("Gastos_Gerais").child("Outros").push().setValue(gastoOutros);
+                    databaseReference.child(usuarioID).child("Gastos_Gerais").child("Outros").setValue(gastoOutros);
 
                 }
 
@@ -200,7 +200,7 @@ public class Categorias_Activity extends AppCompatActivity {
         binding.btNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Categorias_Activity.this, Perfil_Activity.class);
+                Intent intent = new Intent(Categorias_Activity.this, Extrato_Activity.class);
                 startActivity(intent);
             }
         });

@@ -49,7 +49,7 @@ public class Gastos_Activity extends AppCompatActivity {
                     double gastos = Double.parseDouble(gastoString);
 
                     databaseReference = FirebaseDatabase.getInstance().getReference("Usuarios");
-                    databaseReference.child("UID").child("Objetivo_Gastos").setValue(gastos);
+                    databaseReference.child(usuarioID).child("Objetivo_Gastos").setValue(gastos);
 
 
                 } catch (Exception e) {
