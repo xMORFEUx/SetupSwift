@@ -25,6 +25,14 @@ public class PrimeirosPassos_Activity extends AppCompatActivity {
 
         getSupportActionBar().hide();
 
+        binding.btExtrato.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PrimeirosPassos_Activity.this, Extrato_Activity.class);
+                startActivity(intent);
+            }
+        });
+
         binding.btObjetivo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

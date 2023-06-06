@@ -46,8 +46,8 @@
         <View
             android:id="@+id/containerCompoments"
             style="@style/ContainerComponents"
-            android:layout_width="334dp"
-            android:layout_height="208dp"
+            android:layout_width="336dp"
+            android:layout_height="311dp"
             android:layout_marginTop="200dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.526"
@@ -58,33 +58,54 @@
             android:id="@+id/text_cat"
             android:layout_width="288dp"
             android:layout_height="52dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="4dp"
             android:text="@string/text_cat"
             android:textAlignment="center"
             android:textColor="#717171"
             android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@id/bt_objetivo"
             app:layout_constraintEnd_toEndOf="@id/containerCompoments"
-            app:layout_constraintHorizontal_bias="0.465"
             app:layout_constraintStart_toStartOf="@id/containerCompoments" />
+
+        <TextView
+            android:id="@+id/text_ext"
+            android:layout_width="319dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/txt_ext"
+            android:textAlignment="center"
+            android:textColor="#717171"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@id/containerCompoments"
+            app:layout_constraintStart_toStartOf="@id/containerCompoments"
+            app:layout_constraintTop_toBottomOf="@id/bt_objetivo" />
+
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bt_objetivo"
             style="@style/Button"
+            android:layout_marginBottom="172dp"
             android:text="@string/Rendimento"
-            android:layout_marginBottom="70dp"
-            app:layout_constraintStart_toStartOf="@id/containerCompoments"
-            app:layout_constraintEnd_toEndOf="@id/containerCompoments"
             app:layout_constraintBottom_toBottomOf="@id/containerCompoments"
+            app:layout_constraintEnd_toEndOf="@id/containerCompoments"
+            app:layout_constraintStart_toStartOf="@id/containerCompoments" />
 
-            />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/bt_extrato"
+            style="@style/Button"
+            android:layout_marginTop="70dp"
+            android:text="@string/extrato"
+            app:layout_constraintTop_toBottomOf="@id/bt_objetivo"
+            app:layout_constraintEnd_toEndOf="@id/containerCompoments"
+            app:layout_constraintStart_toStartOf="@id/containerCompoments" />
+
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bt_sair"
             style="@style/Button"
             android:layout_width="143dp"
             android:layout_height="46dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="130dp"
             android:text="@string/Sair"
             app:layout_constraintEnd_toEndOf="@id/containerCompoments"
             app:layout_constraintHorizontal_bias="0.492"

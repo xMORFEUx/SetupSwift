@@ -54,7 +54,6 @@ public class Perfil_Activity extends AppCompatActivity {
         setContentView(binding.getRoot());
         getSupportActionBar().hide();
 
-        linearLayout = binding.linearLayout;
         pieChart = binding.pieChart;
 
         usuarioID = FirebaseAuth.getInstance().getCurrentUser().getUid();
@@ -83,20 +82,31 @@ public class Perfil_Activity extends AppCompatActivity {
                     valoresPorCategoria.put(categoria, total);
                 }
 
-
                 ArrayList<PieEntry> categorias = new ArrayList<>();
-                PieDataSet pieDataSet = new PieDataSet(categorias, "");
+                ArrayList<Integer> cores = new ArrayList<>(); // Lista de cores
+//                for (Map.Entry<String, Double> entry : valoresPorCategoria.entrySet()) {
+//                    String categoria = entry.getKey();
+//                    double valor = entry.getValue();
+//                    categorias.add(new PieEntry((float) valor, categoria));
+//                }
+
+                cores.add(getResources().getColor(R.color.purple_200));
+                cores.add(getResources().getColor(R.color.green));
+                cores.add(getResources().getColor(R.color.red));
+                cores.add(getResources().getColor(R.color.teal_700));
+                cores.add(getResources().getColor(R.color.purple_500));
+                cores.add(getResources().getColor(R.color.yellow));
+
+                int i = 0;
                 for (Map.Entry<String, Double> entry : valoresPorCategoria.entrySet()) {
                     String categoria = entry.getKey();
                     double valor = entry.getValue();
                     categorias.add(new PieEntry((float) valor, categoria));
+                    i++;
                 }
-                pieDataSet.setColors(getResources().getColor(R.color.purple_200),
-                        getResources().getColor(R.color.green),
-                        getResources().getColor(R.color.red),
-                        getResources().getColor(R.color.teal_700),
-                        getResources().getColor(R.color.purple_500),
-                        getResources().getColor(R.color.yellow));
+
+                PieDataSet pieDataSet = new PieDataSet(categorias, "");
+                pieDataSet.setColors(cores); // Definir as cores
                 pieDataSet.setSliceSpace(2f);
                 pieDataSet.setValueTextColor(Color.WHITE);
                 pieDataSet.setValueTextSize(10f);
@@ -127,44 +137,6 @@ public class Perfil_Activity extends AppCompatActivity {
                 legend.setVerticalAlignment(Legend.LegendVerticalAlignment.BOTTOM);
                 legend.setHorizontalAlignment(Legend.LegendHorizontalAlignment.LEFT);
                 legend.setOrientation(Legend.LegendOrientation.HORIZONTAL);
-
-
-                usuarioID = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                DatabaseReference userRef = FirebaseDatabase.getInstance().getReference().child("Usuarios").child(usuarioID);
-                DatabaseReference gastosGeraisRef = userRef.child("Gastos_Gerais");
-
-                gastosGeraisRef.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        linearLayout.removeAllViews();
-
-                        for (DataSnapshot categorySnapshot : dataSnapshot.getChildren()){
-                            String categoryKey = categorySnapshot.getKey();
-                            Long valueLong = categorySnapshot.getValue(Long.class);
-
-                            String value = String.valueOf(valueLong);
-
-                            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
-                                    LinearLayout.LayoutParams.WRAP_CONTENT,
-                                    LinearLayout.LayoutParams.WRAP_CONTENT
-                            );
-                            TextView textView = new TextView(Perfil_Activity.this);
-                            textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
-                            textView.setTextColor(Color.WHITE);
-                            textView.setBackgroundColor(Color.LTGRAY);
-                            textView.setText(categoryKey + ": " + value);
-                            layoutParams.setMargins(0, 0, 0, 16);
-                            textView.setLayoutParams(layoutParams);
-                            linearLayout.addView(textView);
-
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
 
             }
 

@@ -81,7 +81,7 @@ public class Login_Activity extends AppCompatActivity {
         String senha = getColoredSpanned("Esqueceu a senha? ", "#000000");
         String alterar = getColoredSpanned("Alterar", "#0000ff");
 
-        binding.textEsqSenha.setText(Html.fromHtml(senha + alterar));
+//        binding.textEsqSenha.setText(Html.fromHtml(senha + alterar));
 
         GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
@@ -281,7 +281,7 @@ public class Login_Activity extends AppCompatActivity {
 
     private void TelaPrincipal(){
 
-        Intent intent = new Intent(Login_Activity.this, Categorias_Activity.class);
+        Intent intent = new Intent(Login_Activity.this, PrimeirosPassos_Activity.class);
         startActivity(intent);
         finish();
     }

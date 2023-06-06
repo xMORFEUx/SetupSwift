@@ -37,7 +37,7 @@ public class Rendimento_Activity extends AppCompatActivity {
 
     private ActivityRendimentoBinding binding;
 
-    private NumberFormat numberFormat = new DecimalFormat("##,###");
+    private NumberFormat numberFormat = new DecimalFormat("###");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,15 +47,17 @@ public class Rendimento_Activity extends AppCompatActivity {
         getSupportActionBar().hide();
 
         binding.ValorSeek.addTextChangedListener(new TextWatcher() {
+
+            private boolean isDeleting = false;
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
+                isDeleting = count > after;
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (!s.toString().isEmpty()){
-                    int value = Integer.parseInt(s.toString().replaceAll("[^\\^\\d]", ""));
+                    int value = Integer.parseInt(s.toString().replaceAll("[^\\d]",""));
                     binding.seekBar.setProgress(value);
                 }
 
@@ -63,6 +65,11 @@ public class Rendimento_Activity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
+
+                if (!isDeleting) {
+                    // Mantém o cursor no final do texto
+                    binding.ValorSeek.setSelection(s.length());
+                }
 
             }
         });

@@ -32,6 +32,7 @@
     <string name="outros">Outros</string>
     <string name="salvar">Salvar</string>
     <string name="cancelar">Cancelar</string>
+    <string name="valor_lc">Valor total lançado:</string>
     <string name="text_cat"><i>Para ajudar você precisamos definir um objetivo</i></string>
     <string name="text_acesso">Já possui uma conta? <u>Logar</u></string>
     <string name="text_cadastro">Primeiro Acesso? <u>Cadastre-se</u></string>
@@ -42,4 +43,6 @@
     <string name="despesa_perfil"><u><i>Despesas por Categoria</i></u></string>
     <string name="Sair">Sair</string>
     <string name="saldo_atual"><u><i>Saldo Atual</i></u></string>
+    <string name="extrato">Ir para Extrato</string>
+    <string name="txt_ext"><i>Já efetuou os lançamentos? Clique abaixo para ir direto para o seu extrato</i></string>
 </resources>

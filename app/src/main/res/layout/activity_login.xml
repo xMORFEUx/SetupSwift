@@ -106,7 +106,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
-            android:layout_marginRight="170dp"
             android:text="@string/text_cadastro"
             android:textColor="@color/black"
             android:textSize="12sp"
@@ -114,17 +113,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/progressbar" />
 
-        <TextView
-            android:id="@+id/text_esq_senha"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:text="Esqueceu a senha? Alterar"
-            android:textColor="@color/black"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/progressbar"
-            app:layout_constraintStart_toEndOf="@id/text_tela_cadastro"/>
+<!--        <TextView-->
+<!--            android:id="@+id/text_esq_senha"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="28dp"-->
+<!--            android:text="Esqueceu a senha? Alterar"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="12sp"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/progressbar"-->
+<!--            app:layout_constraintStart_toEndOf="@id/text_tela_cadastro"/>-->
 
 
 
