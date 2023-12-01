@@ -1,16 +1,18 @@
 package com.example.ss.model;
 
+import android.text.Html;
+
 public class Produto {
 
-    private int foto;
-    private String nome, descricao, preco;
+    private int foto, nome, descricao, preco;
 
-    public Produto(int foto, String nome, String descricao, String preco) {
+    public Produto(int foto, int nome, int descricao, int preco) {
 
         this.foto = foto;
         this.nome = nome;
         this.descricao = descricao;
         this.preco = preco;
+
     }
 
     public int getFoto(){
@@ -21,27 +23,27 @@ public class Produto {
         this.foto = foto;
     }
 
-    public String getNome(){
+    public int getNome(){
         return nome;
     }
 
-    public void setNome(String nome){
+    public void setNome(int nome){
         this.nome = nome;
     }
 
-    public String getDescricao(){
+    public int getDescricao(){
         return descricao;
     }
 
-    public void setDescricao(String desricao){
+    public void setDescricao(int desricao){
         this.descricao = desricao;
     }
 
-    public String getPreco(){
+    public int getPreco(){
         return preco;
     }
 
-    public void setPreco(String preco){
+    public void setPreco(int preco){
         this.preco = preco;
     }
 }

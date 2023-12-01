@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Gastos_Activity"
-    android:background="@color/white">
+    android:background="@color/black">
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="0dp"
         android:layout_height="59dp"
-        android:background="@drawable/background_2"
+        android:background="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -29,7 +29,7 @@
         android:layout_width="110dp"
         android:layout_height="110dp"
         android:layout_marginTop="10dp"
-        android:background="@drawable/ativos"
+        android:background="@drawable/variety"
         app:layout_constraintTop_toTopOf="@id/containerCompoments_2"
         app:layout_constraintStart_toStartOf="@id/containerCompoments_2"
         app:layout_constraintEnd_toEndOf="@id/containerCompoments_2"/>
@@ -40,7 +40,7 @@
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="130dp"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textStyle="bold"
         android:textSize="18sp"
         android:text="@string/question_1"
@@ -52,7 +52,7 @@
         android:id="@+id/txt_load"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="20sp"
         android:gravity="center"
         android:textStyle="italic"
@@ -76,8 +76,10 @@
             android:id="@+id/jogos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:checked="false"
+            android:layout_marginTop="20dp"
+            android:checked="true"
+            android:buttonTint="@color/green"
+            android:textColor="@color/grey_000"
             android:text="Jogos Eletrônicos"/>
 
         <CheckBox
@@ -85,6 +87,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="false"
+            android:buttonTint="@color/green"
+            android:textColor="@color/grey_000"
             android:layout_marginTop="10dp"
             android:text="Trabalho"/>
 
@@ -93,6 +97,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="false"
+            android:buttonTint="@color/green"
+            android:textColor="@color/grey_000"
             android:layout_marginTop="10dp"
             android:text="Edição de Vídeos / Fotos"/>
 
@@ -101,6 +107,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="false"
+            android:buttonTint="@color/green"
+            android:textColor="@color/grey_000"
             android:layout_marginTop="10dp"
             android:text="Atividades Simples (Navegar na Web)"/>
 
@@ -109,6 +117,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="false"
+            android:buttonTint="@color/green"
+            android:textColor="@color/grey_000"
             android:layout_marginTop="10dp"
             android:text="Estudo"/>
 
@@ -129,32 +139,31 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="false"
-            android:layout_marginTop="40dp"
-            android:text="Entre R$1.500 à R$2.000"/>
+            android:buttonTint="@color/green"
+            android:textColor="@color/grey_000"
+            android:layout_marginTop="20dp"
+            android:text="Quero pegar leve (Entre R$2.000,00 à R$2.500,00)"/>
 
         <CheckBox
             android:id="@+id/valor_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="false"
+            android:buttonTint="@color/green"
+            android:textColor="@color/grey_000"
             android:layout_marginTop="10dp"
-            android:text="Entre R$2.000 à R$2.500"/>
+            android:text="Quero gastar mas com consciência (Entre R$3.000,00 à R$4.500,00)"/>
 
         <CheckBox
             android:id="@+id/valor_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="false"
+            android:buttonTint="@color/green"
+            android:textColor="@color/grey_000"
             android:layout_marginTop="10dp"
-            android:text="Entre R$ 2.500 à R$ 3.000"/>
+            android:text="Meter o pé na jaca (Acima de R$ 4.000,00)"/>
 
-        <CheckBox
-            android:id="@+id/valor_4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="false"
-            android:layout_marginTop="10dp"
-            android:text="Acima de R$ 3.000"/>
 
     </LinearLayout>
 
@@ -172,7 +181,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="false"
-            android:layout_marginTop="40dp"
+            android:buttonTint="@color/green"
+            android:textColor="@color/grey_000"
+            android:layout_marginTop="20dp"
             android:text="Sim"/>
 
         <CheckBox
@@ -180,6 +191,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="false"
+            android:buttonTint="@color/green"
+            android:textColor="@color/grey_000"
             android:layout_marginTop="40dp"
             android:text="Não"/>
 
@@ -187,7 +200,7 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/bt_avancar"
-        style="@style/Button"
+        style="@style/Button_9"
         android:text="Próximo"
         android:layout_marginBottom="50dp"
         app:layout_constraintStart_toStartOf="@id/containerCompoments_2"
@@ -196,7 +209,7 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/bt_avancar_2"
-        style="@style/Button"
+        style="@style/Button_9"
         android:text="Próximo"
         android:layout_marginBottom="50dp"
         android:visibility="gone"
@@ -206,7 +219,7 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/bt_avancar_3"
-        style="@style/Button"
+        style="@style/Button_9"
         android:text="Próximo"
         android:layout_marginBottom="50dp"
         android:visibility="gone"
@@ -219,22 +232,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:indeterminateTint="@color/black"
+        android:indeterminateTint="@color/white"
         app:layout_constraintEnd_toEndOf="@id/containerCompoments_2"
         app:layout_constraintStart_toStartOf="@id/containerCompoments_2"
         app:layout_constraintBottom_toBottomOf="@id/containerCompoments_2"
         android:layout_marginBottom="280dp"
         android:visibility="gone"/>
 
-    <ImageView
-        android:id="@+id/back"
-        android:layout_width="43dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/back"
-        android:elevation="2dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageView2" />
+    <TextView
+        android:id="@+id/menu_button"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:drawableLeft="@drawable/back_green"
+        android:gravity="center"
+        android:text="Menu"
+        android:textColor="@color/green"
+        android:textSize="23sp"
+        app:layout_constraintStart_toStartOf="@id/imageView2"
+        app:layout_constraintTop_toTopOf="@id/imageView2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

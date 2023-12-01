@@ -2,9 +2,12 @@ package com.example.ss;
 
 import static com.google.android.gms.auth.api.signin.GoogleSignInOptions.DEFAULT_SIGN_IN;
 
+import static android.content.ContentValues.TAG;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.ss.R;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -84,7 +87,7 @@ public class Login_Activity extends AppCompatActivity {
 
 //        binding.textEsqSenha.setText(Html.fromHtml(senha + alterar));
 
-        GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(DEFAULT_SIGN_IN)
+        GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
@@ -147,7 +150,6 @@ public class Login_Activity extends AppCompatActivity {
             Log.d(TAG, "onActivityResult: Google Signin intent result");
             Task<GoogleSignInAccount> accountTask = GoogleSignIn.getSignedInAccountFromIntent(data);
             try{
-
                 GoogleSignInAccount account = accountTask.getResult(ApiException.class);
                 firebaseAuthWithGoogleAccount(account);
 
@@ -288,12 +290,11 @@ public class Login_Activity extends AppCompatActivity {
     }
 
     private void IniciarComponentes(){
-        text_tela_cadastro = findViewById(R.id.text_tela_cadastro);
-        text_tela_principal = findViewById(R.id.bt_acessar);
-        edit_email = findViewById(R.id.edit_email);
-        edit_senha = findViewById(R.id.edit_senha);
-        bt_acessar = findViewById(R.id.bt_acessar);
-        progressBar = findViewById(R.id.progressbar);
+        text_tela_cadastro = binding.textTelaCadastro;
+        edit_email = binding.editEmail;
+        edit_senha = binding.editSenha;
+        bt_acessar = binding.btAcessar;
+        progressBar = binding.progressbar;
     }
 
     private String getColoredSpanned(String text, String color) {

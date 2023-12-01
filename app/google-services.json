@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "17339028572",
+    "firebase_url": "https://cfpcontrole-financeiro-pessoal-default-rtdb.firebaseio.com",
     "project_id": "cfpcontrole-financeiro-pessoal",
     "storage_bucket": "cfpcontrole-financeiro-pessoal.appspot.com"
   },
@@ -14,7 +15,44 @@
       },
       "oauth_client": [
         {
-          "client_id": "17339028572-3nodgcmcmncdmt9jfe8d7ku5idd36kum.apps.googleusercontent.com",
+          "client_id": "17339028572-ipg55ga5oamiclogst6s6elphis2hfon.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ss",
+            "certificate_hash": "9b749efd228f4b00b9ee71b66601af7e0ca21c2f"
+          }
+        },
+        {
+          "client_id": "17339028572-qofkeporqns9npkpcf1br4pim77jc9k1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCff7fGdCtcCGy9lA6DjIoXFpePPo0dD2c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "17339028572-3nodgcmcmncdmt9jfe8d7ku5idd36kum.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:17339028572:android:2ac2ff958f9bfd6f9f0299",
+        "android_client_info": {
+          "package_name": "com.time"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "17339028572-qofkeporqns9npkpcf1br4pim77jc9k1.apps.googleusercontent.com",
           "client_type": 3
         }
       ],

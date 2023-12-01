@@ -1,4 +1,5 @@
 <resources>
+
     <string name="app_name">SetupSwift</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
@@ -48,4 +49,116 @@
     <string name="question_1">1º - Que tipo de atividade você planeja desenvolver com seu novo Setup?</string>
     <string name="question_2">2º - Quanto você pretende gastar no seu novo Setup?</string>
     <string name="question_3">3º - Você pretende fazer um Upgrade a longo prazo?</string>
+    <string name="ssd1">SSD SanDisk Plus 480GB</string>
+    <string name="descssd1">Confiável, rápido e muita capacidade. A SanDisk, pioneira em tecnologias
+        de armazenamento de estado sólido é a marca de confiança dos profissionais da área, oferece
+        maior velocidade e desempenho com o SanDisk SSD Plus.</string>
+    <string name="valorssd1">R$ 450,00</string>
+    <string name="ssd2">SSD 480 GB Kingston A400</string>
+    <string name="descssd2">A unidade de estado sólido A400 da Kingston aumenta drasticamente
+        a resposta do seu computador com tempos incríveis de inicialização, carregamento e
+        transferência, comparados a discos rígidos mecânicos.</string>
+    <string name="valorssd2">R$ 179,99</string>
+    <string name="ssd3">SSD 960 GB Kingston A400</string>
+    <string name="descssd3">O A400 aumenta drasticamente o tempo de resposta do seu computador com
+        tempos incríveis de inicialização, carregamento e transferência, comparados a discos rígidos
+        mecânicos. Reforçado com uma controladora de última geração para velocidades de leitura e
+        gravação de até 500MB/s e 450MB/s</string>
+    <string name="valorssd3">R$ 279,00</string>
+    <string name="memoria1">Memória RAM Corsair 8GB DDR4</string>
+    <string name="descmemoria1">Memória Corsair Vengeance LPX, 8GB, 2666MHz, DDR4, C16, Preto.</string>
+    <string name="valormemoria1">R$ 369,00</string>
+    <string name="memoria2">Memória Kingston HyperX, 8GB, 1600MHz, DDR3, 1.5V, Azul</string>
+    <string name="descmemoria2">A memória HyperX FURY está disponível nas capacidades de 4GB e 8GB
+        com frequências que variam entre 1333MHz, 1600MHz e 1866MHz. Todas as memórias HyperX FURY
+        possuem o PCB preto e um dissipador de calor assimétrico, este podendo ser Azul, Preto,
+        Vermelho ou, pela primeira vez, branco.</string>
+    <string name="valormemoria2">R$ 114,99</string>
+    <string name="memoria3">Memória Kingston Fury Beast, 16GB, 3200MHz, DDR4, CL16</string>
+    <string name="descmemoria3">A memória Kingston FURY Beast DDR4 proporciona um poderoso aumento
+        de performance para jogos, edição de vídeo e renderização. Ela faz o overclock automático
+        para a especificação de maior performance do módulo que seja suportada pelo sistema* e está
+        pronta para Intel XMP e AMD Ryzen.</string>
+    <string name="valormemoria3">R$ 219,00</string>
+    <string name="placadevideo1">GeForce RTX 3090 24GB</string>
+    <string name="descplacadevideo1">Os blocos de construção para a GPU mais rápida e eficiente do
+        mundo, o novo Ampere SM traz 2X a taxa de transferência do FP32 e maior eficiência de energia.</string>
+    <string name="valorplacadevideo1">R$ 9.999,99</string>
+    <string name="placadevideo2">Placa de Vídeo Intel Arc A380 ASRock Challenger ITX 6GB</string>
+    <string name="descplacadevideo2">Ao otimizar a estrutura listrada em cada pá do ventilador e a
+        superfície polida na parte inferior, o design exclusivo do ventilador axial listrado da
+        ASRock pode fornecer maior fluxo de ar para resfriamento aprimorado.</string>
+    <string name="valorplacadevideo2">R$ 815,99</string>
+    <string name="placadevideo3">Placa de Vídeo RTX 3050 Gaming X 8G MSI NVIDIA Geforce, 8GB GDDR6</string>
+    <string name="descplacadevideo3">A GeForce RTX 3050 foi desenvolvida com o poderoso desempenho
+        gráfico da arquitetura NVIDIA Ampere. Ela apresenta RT Cores de 2ª geração e Tensor Cores
+        de 3ª geração dedicados, novos multiprocessadores de streaming</string>
+    <string name="valorplacadevideo3">R$ 1.399,99</string>
+    <string name="processador1">Intel Core i5 10400F</string>
+    <string name="descprocessador1">Os novos processadores da 10ª geração oferecem atualizações de
+        desempenho incríveis para melhorar a produtividade e proporcionar entretenimento surpreendente.</string>
+    <string name="valorprocessador1">R$ 1.050,00</string>
+    <string name="processador2">Processador Intel Core i3–10105, 3.7GHz</string>
+    <string name="descprocessador2">Os novos processadores IntelCore da 10ª Geração oferecem
+        atualizações de desempenho incríveis para melhorar a produtividadee proporcionar entretenimento
+        surpreendente, incluindo até 5,3 GHz, Intel® Wi-Fi 6 (Gig) tecnologiaThunderbolt™ 3, HDR 4K.</string>
+    <string name="valorprocessador2">R$ 549,99</string>
+    <string name="processador3">Processador Intel Core i9–13900K</string>
+    <string name="descprocessador3">rocessador para desktop Intel Core i9-13900K da 13ª geração.
+        Apresentando as tecnologias Intel Adaptive Boost, Intel Thermal Velocity Boost, Intel Turbo
+        Boost Max Technology 3.0, e suporte PCIe 5.0 e 4.0, suporte DDR5 e DDR4</string>
+    <string name="valorprocessador3">R$ 3.984,99</string>
+    <string name="placamae1">Placa Mãe Gigabyte B660M Aorus PRO</string>
+    <string name="descplacamae1">Com a tecnologia se movendo tão rápido, a GIGABYTE ainda acompanha
+        as últimas tendências e oferece aos nossos clientes recursos avançados e tecnologia de ponta.
+        As placas-mãe GIGABYTE Série B660 vêm com solução de energia atualizada</string>
+    <string name="valorplacamae1">R$ 939,99</string>
+    <string name="placamae2">Placa Mãe MSI B560M PRO-E, Intel LGA 1200, mATX, DDR4</string>
+    <string name="descplacamae2">A série PRO ajuda os usuários a trabalhar de forma mais inteligente,
+        oferecendo uma experiência eficiente e produtiva. Com funcionalidade estável e montagem de alta qualidade</string>
+    <string name="valorplacamae2">R$ 449,99</string>
+    <string name="placamae3">Placa Mãe MSI H310M PRO-VDH, Intel 1151, m-ATX</string>
+    <string name="descplacamae3">Com entrega de energia aprimorada e opções abrangentes de refrigeração
+        para alimentar os processadores, além de suporte para armazenamento e memória mais rápidos.</string>
+    <string name="valorplacamae3">R$ 199,99</string>
+    <string name="teclado1">Teclado Mecânico Gamer T-Dagger Corvette</string>
+    <string name="descteclado1">Teclado Mecânico Gamer T-Dagger Corvette, LED Rainbow, Switch Outemu
+        DIY Blue, ABNT2 - T-TGK302 -BL (PT-BLUE).</string>
+    <string name="valorteclado1">R$ 229,00</string>
+    <string name="teclado2">Teclado Mecânico Gamer Redragon Kumara</string>
+    <string name="descteclado2">O Kumara vem no padrão reduzido tenkeyless, com 12 teclas para controle
+        rápido de funções multimídia, sistema ""N-Key Rollover"" em todas as teclas do Kumara. </string>
+    <string name="valorteclado2">R$ 139,99</string>
+    <string name="teclado3">Teclado Mecânico Gamer HyperX Alloy Origins, RGB</string>
+    <string name="descteclado3">O HyperX Alloy Origins é um teclado resistente e compacto com switches
+        exclusivos HyperX projetados para proporcionar aos gamers a melhor combinação de estilo, desempenho e confiabilidade.</string>
+    <string name="valorteclado3">R$ 459,99</string>
+    <string name="gabinete1">Gabinete Gamer</string>
+    <string name="descgabinete1">A série Carbide SPEC-DELTA RGB é uma caixa ATX de torre média
+        de vidro temperado com estilo angular impressionante, fluxo de ar potente e três
+        ventiladores de refrigeração RGB incluídos.</string>
+    <string name="valorgabinete1">R$ 799,00</string>
+    <string name="gabinete2">Gabinete Gamer Cooler Master HAF 700, Full Tower</string>
+    <string name="descgabinete2">O HAF 700 é capaz de abrigar até placas-mãe SSI-EEB (E-ATX), bem
+        como placas gráficas de qualquer tamanho nas orientações horizontal e vertical.</string>
+    <string name="valorgabinete2">R$ 1.899,99</string>
+    <string name="gabinete3">Gabinete Gamer Rise Mode Glass 06X, Mid Tower</string>
+    <string name="descgabinete3">Os Gabinetes são a estrutura que une toda sua build, onde você vai
+        querer algo que tenha flexibilidade para montagem da suas peças, garanta boa refrigeração
+        dos componentes e que deixe tudo bonito.</string>
+    <string name="valorgabinete3">R$ 169,99</string>
+    <string name="mouse1">Mouse Gamer Redragon Cobra, Chroma RGB, 12400DPI</string>
+    <string name="descmouse1">O Mouse Gamer Redragon Cobra, possui sensor PIXART 3327 para Alta
+        Performance (20 G / 100 IPS) e seu sistema é de Iluminação RGB Redragon Chroma Mk.II (7 Diferentes Modos de Iluminação)</string>
+    <string name="valormouse1">R$ 89,90</string>
+    <string name="mouse2">Mouse Gamer Logitech G502 HERO com RGB LIGHTSYNC</string>
+    <string name="descmouse2"> Seu mouse gamer favorito de alto desempenho oferece uma funcionalidade
+        mais precisa do que nunca. Agora, personalize a iluminação RGB para combinar com seu estilo
+        e ambiente ou sincronize com outros produtos Logitech G</string>
+    <string name="valormouse2">R$ 349,99</string>
+    <string name="mouse3">Mouse Gamer HyperX Pulsefire Core RGB 6200 DPI </string>
+    <string name="descmouse3">Ter uma precisão extrema faz toda a diferença em uma partida e esse
+        mouse gamer irá te auxiliar nas partidas para que você busque sempre o primeiro lugar!
+        Para deixar sua configuração mais pessoal e com exatidão, é possível chegar até a 6200 DPI</string>
+    <string name="valormouse3">R$ 139,99</string>
 </resources>

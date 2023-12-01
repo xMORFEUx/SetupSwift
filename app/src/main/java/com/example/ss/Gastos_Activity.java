@@ -57,8 +57,6 @@ public class Gastos_Activity extends AppCompatActivity implements View.OnClickLi
         valor2.setOnClickListener(this);
         valor3 = (CheckBox) binding.valor3;
         valor3.setOnClickListener(this);
-        valor4 = (CheckBox) binding.valor4;
-        valor4.setOnClickListener(this);
         sim = (CheckBox) binding.sim;
         sim.setOnClickListener(this);
         nao = (CheckBox) binding.nao;
@@ -68,21 +66,40 @@ public class Gastos_Activity extends AppCompatActivity implements View.OnClickLi
         binding.btAvancar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                binding.question1.setText(R.string.question_2);
-                binding.questionario1.setVisibility(View.GONE);
-                binding.questionario2.setVisibility(View.VISIBLE);
-                binding.btAvancar.setVisibility(View.GONE);
-                binding.btAvancar2.setVisibility(View.VISIBLE);
+
+                if (!jogos.isChecked() && !estudo.isChecked() && !web.isChecked() && !trabalho.isChecked() && !edicao.isChecked()) {
+
+                    Snackbar snackbar = Snackbar.make(v, "Selecione uma das opções para prosseguir", Snackbar.LENGTH_SHORT);
+                    snackbar.setBackgroundTint(Color.WHITE);
+                    snackbar.setTextColor(Color.BLACK);
+                    snackbar.show();
+                }else {
+                    binding.question1.setText(R.string.question_2);
+                    binding.questionario1.setVisibility(View.GONE);
+                    binding.questionario2.setVisibility(View.VISIBLE);
+                    binding.btAvancar.setVisibility(View.GONE);
+                    binding.btAvancar2.setVisibility(View.VISIBLE);
+                }
             }
         });
         binding.btAvancar2.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-                binding.question1.setText(R.string.question_3);
-                binding.questionario2.setVisibility(View.GONE);
-                binding.questionario3.setVisibility(View.VISIBLE);
-                binding.btAvancar2.setVisibility(View.GONE);
-                binding.btAvancar3.setVisibility(View.VISIBLE);
+
+                if (!valor1.isChecked() && !valor2.isChecked() && !valor3.isChecked()) {
+
+                    Snackbar snackbar = Snackbar.make(v, "Selecione uma das opções para prosseguir", Snackbar.LENGTH_SHORT);
+                    snackbar.setBackgroundTint(Color.WHITE);
+                    snackbar.setTextColor(Color.BLACK);
+                    snackbar.show();
+                }else {
+                    binding.question1.setText(R.string.question_3);
+                    binding.questionario2.setVisibility(View.GONE);
+                    binding.questionario3.setVisibility(View.VISIBLE);
+                    binding.btAvancar2.setVisibility(View.GONE);
+                    binding.btAvancar3.setVisibility(View.VISIBLE);
+                }
             }
         });
 
@@ -90,13 +107,21 @@ public class Gastos_Activity extends AppCompatActivity implements View.OnClickLi
             @Override
             public void onClick(View v) {
 
-                binding.progressbar.setVisibility(View.VISIBLE);
-                binding.txtLoad.setVisibility(View.VISIBLE);
-                binding.btAvancar3.setVisibility(View.GONE);
-                binding.questionario3.setVisibility(View.GONE);
-                binding.question1.setVisibility(View.GONE);
-                binding.image1.setVisibility(View.GONE);
+                if (!sim.isChecked() && !nao.isChecked()) {
 
+                    Snackbar snackbar = Snackbar.make(v, "Selecione uma das opções para prosseguir", Snackbar.LENGTH_SHORT);
+                    snackbar.setBackgroundTint(Color.WHITE);
+                    snackbar.setTextColor(Color.BLACK);
+                    snackbar.show();
+                }else {
+
+                    binding.progressbar.setVisibility(View.VISIBLE);
+                    binding.txtLoad.setVisibility(View.VISIBLE);
+                    binding.btAvancar3.setVisibility(View.GONE);
+                    binding.questionario3.setVisibility(View.GONE);
+                    binding.question1.setVisibility(View.GONE);
+                    binding.image1.setVisibility(View.GONE);
+                }
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -108,7 +133,7 @@ public class Gastos_Activity extends AppCompatActivity implements View.OnClickLi
             }
         });
 
-        binding.back.setOnClickListener(new View.OnClickListener() {
+        binding.menuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Gastos_Activity.this, PrimeirosPassos_Activity.class);
@@ -179,7 +204,6 @@ public class Gastos_Activity extends AppCompatActivity implements View.OnClickLi
 //                    Toast.makeText(getApplicationContext(), "Estudo", Toast.LENGTH_LONG).show();
                     binding.valor2.setChecked(false);
                 binding.valor3.setChecked(false);
-                binding.valor4.setChecked(false);
                 categoria2 = "Valor1";
                 break;
             case R.id.valor_2:
@@ -187,7 +211,6 @@ public class Gastos_Activity extends AppCompatActivity implements View.OnClickLi
 //                    Toast.makeText(getApplicationContext(), "Estudo", Toast.LENGTH_LONG).show();
                     binding.valor1.setChecked(false);
                 binding.valor3.setChecked(false);
-                binding.valor4.setChecked(false);
                 categoria2 = "Valor2";
                 break;
             case R.id.valor_3:
@@ -195,16 +218,7 @@ public class Gastos_Activity extends AppCompatActivity implements View.OnClickLi
 //                    Toast.makeText(getApplicationContext(), "Estudo", Toast.LENGTH_LONG).show();
                     binding.valor1.setChecked(false);
                 binding.valor2.setChecked(false);
-                binding.valor4.setChecked(false);
                 categoria2 = "Valor3";
-                break;
-            case R.id.valor_4:
-                if(valor4.isChecked())
-//                    Toast.makeText(getApplicationContext(), "Estudo", Toast.LENGTH_LONG).show();
-                    binding.valor1.setChecked(false);
-                binding.valor2.setChecked(false);
-                binding.valor3.setChecked(false);
-                categoria2 = "Valor4";
                 break;
             case R.id.sim:
                 if(sim.isChecked())
@@ -228,9 +242,9 @@ public class Gastos_Activity extends AppCompatActivity implements View.OnClickLi
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         usuarioID = FirebaseAuth.getInstance().getCurrentUser().getUid();
         databaseReference = FirebaseDatabase.getInstance().getReference("Usuarios");
-        databaseReference.child(usuarioID).child("Categoria 1").setValue(categoria1);
-        databaseReference.child(usuarioID).child("Categoria 2").setValue(categoria2);
-        databaseReference.child(usuarioID).child("Categoria 3").setValue(categoria3);
+        databaseReference.child(usuarioID).child("Categoria1").setValue(categoria1);
+        databaseReference.child(usuarioID).child("Categoria2").setValue(categoria2);
+        databaseReference.child(usuarioID).child("Categoria3").setValue(categoria3);
 
 
     }
