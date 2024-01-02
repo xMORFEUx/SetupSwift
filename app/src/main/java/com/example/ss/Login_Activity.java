@@ -77,12 +77,12 @@ public class Login_Activity extends AppCompatActivity {
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        String acesso = getColoredSpanned("Primeiro Acesso? ", "#000000");
+        String acesso = getColoredSpanned("Primeiro Acesso? ", "#FFFFFFFF");
         String cadastro = getColoredSpanned("Cadastre-se", "#0000ff");
 
         binding.textTelaCadastro.setText(Html.fromHtml(acesso + cadastro));
 
-        String senha = getColoredSpanned("Esqueceu a senha? ", "#000000");
+        String senha = getColoredSpanned("Esqueceu a senha? ", "#FFFFFFFF");
         String alterar = getColoredSpanned("Alterar", "#0000ff");
 
 //        binding.textEsqSenha.setText(Html.fromHtml(senha + alterar));

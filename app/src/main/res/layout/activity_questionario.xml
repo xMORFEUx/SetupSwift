@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Gastos_Activity"
+    tools:context=".Questionario_Activity"
     android:background="@color/black">
 
     <ImageView
@@ -29,7 +29,7 @@
         android:layout_width="110dp"
         android:layout_height="110dp"
         android:layout_marginTop="10dp"
-        android:background="@drawable/variety"
+        android:background="@drawable/computador"
         app:layout_constraintTop_toTopOf="@id/containerCompoments_2"
         app:layout_constraintStart_toStartOf="@id/containerCompoments_2"
         app:layout_constraintEnd_toEndOf="@id/containerCompoments_2"/>

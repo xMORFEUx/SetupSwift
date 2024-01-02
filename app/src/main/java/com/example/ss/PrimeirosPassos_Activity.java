@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.ss.databinding.ActivityPrimeirosPassosBinding;
-import com.example.ss.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -29,7 +28,7 @@ public class PrimeirosPassos_Activity extends AppCompatActivity {
         binding.btExtrato.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PrimeirosPassos_Activity.this, Rendimento_Activity.class);
+                Intent intent = new Intent(PrimeirosPassos_Activity.this, ListaProdutos_Activity.class);
                 startActivity(intent);
             }
         });
@@ -37,7 +36,7 @@ public class PrimeirosPassos_Activity extends AppCompatActivity {
         binding.btObjetivo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PrimeirosPassos_Activity.this, Gastos_Activity.class);
+                Intent intent = new Intent(PrimeirosPassos_Activity.this, Questionario_Activity.class);
                 startActivity(intent);
             }
         });

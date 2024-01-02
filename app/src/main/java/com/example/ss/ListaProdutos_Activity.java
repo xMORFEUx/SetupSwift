@@ -5,35 +5,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.io.IOException;
-
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Handler;
-import android.provider.ContactsContract;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.SeekBar;
 
-import java.security.ProtectionDomain;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.anychart.core.annotations.Line;
-import com.anychart.core.annotations.VerticalLine;
-import com.example.ss.databinding.ActivityRendimentoBinding;
+import com.example.ss.databinding.ActivityListaProdutosBinding;
 import com.example.ss.model.Produto;
-import com.example.ss.R;
 import com.example.ss.adapter.AdapterProduto;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -41,12 +24,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.ktx.Firebase;
 
-import org.checkerframework.checker.units.qual.A;
-
-public class Rendimento_Activity extends AppCompatActivity {
+public class ListaProdutos_Activity extends AppCompatActivity {
 
     DatabaseReference databaseReference;
 
@@ -56,7 +35,7 @@ public class Rendimento_Activity extends AppCompatActivity {
     String msg = "É necesário inserir algum valor para que possamos prosseguir.";
     int setup;
 
-    private ActivityRendimentoBinding binding;
+    private ActivityListaProdutosBinding binding;
 
     private RecyclerView recyclerView;
 
@@ -70,7 +49,7 @@ public class Rendimento_Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityRendimentoBinding.inflate(getLayoutInflater());
+        binding = ActivityListaProdutosBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         getSupportActionBar().hide();
 
@@ -92,7 +71,7 @@ public class Rendimento_Activity extends AppCompatActivity {
                         productList.add(new Produto(R.drawable.processador2, R.string.processador2, R.string.descprocessador2, R.string.valorprocessador2));
                         productList.add(new Produto(R.drawable.placadevideo2, R.string.placadevideo2, R.string.descplacadevideo2,R.string.valorplacadevideo2));
                         productList.add(new Produto(R.drawable.ssd2, R.string.ssd2, R.string.descssd2, R.string.valorssd2));
-                        productList.add(new Produto(R.drawable.memoria2, R.string.memoria2, R.string.descmemoria2,R.string.valormemoria2));
+                        productList.add(new Produto(R.drawable.memoria_2, R.string.memoria2, R.string.descmemoria2,R.string.valormemoria2));
                         productList.add(new Produto(R.drawable.teclado2, R.string.teclado2, R.string.descteclado2, R.string.valorteclado2));
                         productList.add(new Produto(R.drawable.mouse, R.string.mouse1, R.string.descmouse1, R.string.valormouse1));
                         productList.add(new Produto(R.drawable.gabinete3, R.string.gabinete3, R.string.descgabinete3, R.string.valorgabinete3));
@@ -103,7 +82,7 @@ public class Rendimento_Activity extends AppCompatActivity {
                         productList.add(new Produto(R.drawable.processador, R.string.processador1, R.string.descprocessador1, R.string.valorprocessador1));
                         productList.add(new Produto(R.drawable.placadevideo3, R.string.placadevideo3, R.string.descplacadevideo3,R.string.valorplacadevideo3));
                         productList.add(new Produto(R.drawable.ssd2, R.string.ssd3, R.string.descssd3, R.string.valorssd3));
-                        productList.add(new Produto(R.drawable.memoria3, R.string.memoria3, R.string.descmemoria3,R.string.valormemoria3));
+                        productList.add(new Produto(R.drawable.memoria_3, R.string.memoria3, R.string.descmemoria3,R.string.valormemoria3));
                         productList.add(new Produto(R.drawable.teclado, R.string.teclado1, R.string.descteclado1, R.string.valorteclado1));
                         productList.add(new Produto(R.drawable.mouse3, R.string.mouse3, R.string.descmouse3, R.string.valormouse3));
                         productList.add(new Produto(R.drawable.gabinete, R.string.gabinete1, R.string.descgabinete1, R.string.valorgabinete1));
@@ -123,7 +102,7 @@ public class Rendimento_Activity extends AppCompatActivity {
 
                     if (productList != null) {
                         recyclerView = findViewById(R.id.containerCompoments_2);
-                        recyclerView.setLayoutManager(new LinearLayoutManager(Rendimento_Activity.this));
+                        recyclerView.setLayoutManager(new LinearLayoutManager(ListaProdutos_Activity.this));
 
                         if (adapterProduto == null){
                             adapterProduto = new AdapterProduto(productList);
@@ -144,7 +123,7 @@ public class Rendimento_Activity extends AppCompatActivity {
         binding.menuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Rendimento_Activity.this, PrimeirosPassos_Activity.class);
+                Intent intent = new Intent(ListaProdutos_Activity.this, PrimeirosPassos_Activity.class);
                 startActivity(intent);
                 finish();
             }

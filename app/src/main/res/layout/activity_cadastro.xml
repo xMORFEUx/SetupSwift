@@ -7,7 +7,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".Cadastro_Activity"
     android:fillViewport="true"
-    android:background="@color/white">
+    android:background="@color/black">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,17 +19,17 @@
             android:id="@+id/imageView2"
             android:layout_width="0dp"
             android:layout_height="59dp"
-            android:background="@drawable/background_2"
+            android:background="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/logo"
-            android:layout_width="100dp"
-            android:layout_height="102dp"
+            android:layout_width="130dp"
+            android:layout_height="112dp"
             android:layout_marginTop="76dp"
-            android:src="@drawable/logo_setupswift"
+            android:src="@drawable/logo_3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/imageView2" />
@@ -93,7 +93,7 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bt_cadastrar"
-            style="@style/Button"
+            style="@style/Button_9"
             android:text="@string/Cadastrar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -104,6 +104,7 @@
             android:id="@+id/progressbar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:indeterminateTint="@color/green"
             android:layout_marginTop="20dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -117,7 +118,7 @@
             android:layout_marginBottom="30dp"
             android:text="@string/text_acesso"
             android:textSize="16sp"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             app:layout_constraintTop_toBottomOf="@id/progressbar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>

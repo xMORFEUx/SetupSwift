@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layoutDescription="@xml/activity_categorias_scene"
-    tools:context="com.example.ss.Rendimento_Activity"
+    tools:context="com.example.ss.ListaProdutos_Activity"
     android:background="@color/black">
 
     <ImageView

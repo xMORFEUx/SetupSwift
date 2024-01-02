@@ -7,17 +7,17 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/logo_setupswift"
+        android:icon="@mipmap/logo_2"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.CFP"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name="com.example.ss.Gastos_Activity"
+            android:name="com.example.ss.Questionario_Activity"
             android:exported="false" />
         <activity
-            android:name="com.example.ss.Rendimento_Activity"
+            android:name="com.example.ss.ListaProdutos_Activity"
             android:exported="false" />
         <activity
             android:name="com.example.ss.PrimeirosPassos_Activity"

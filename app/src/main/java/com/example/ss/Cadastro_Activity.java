@@ -53,7 +53,7 @@ public class Cadastro_Activity extends AppCompatActivity {
         binding = ActivityCadastroBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        String senha = getColoredSpanned("Já possui uma conta? ", "#000000");
+        String senha = getColoredSpanned("Já possui uma conta? ", "#FFFFFFFF");
         String alterar = getColoredSpanned("Logar", "#0000ff");
 
         binding.textTelaLogin.setText(Html.fromHtml(senha + alterar));

@@ -7,7 +7,7 @@
         android:layout_height="match_parent"
         tools:context=".Login_Activity"
         android:fillViewport="true"
-        android:background="@color/white">
+        android:background="@color/black">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,7 +20,7 @@
             android:id="@+id/imageView2"
             android:layout_width="0dp"
             android:layout_height="59dp"
-            android:background="@drawable/background_2"
+            android:background="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -28,10 +28,10 @@
         <ImageView
             android:contentDescription="@string/logo"
             android:id="@+id/logo"
-            android:layout_width="100dp"
-            android:layout_height="102dp"
+            android:layout_width="130dp"
+            android:layout_height="112dp"
             android:layout_marginTop="76dp"
-            android:src="@drawable/logo_setupswift"
+            android:src="@drawable/logo_3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/imageView2" />
@@ -73,7 +73,7 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bt_acessar"
-            style="@style/Button"
+            style="@style/Button_9"
             android:text="@string/Acessar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -94,12 +94,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:indeterminateTint="@color/black"
+            android:indeterminateTint="@color/green"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/containerCompoments"
-            android:visibility="invisible"/>
+            android:visibility="gone"/>
 
         <TextView
             android:id="@+id/text_tela_cadastro"
@@ -107,7 +107,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
             android:text="@string/text_cadastro"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

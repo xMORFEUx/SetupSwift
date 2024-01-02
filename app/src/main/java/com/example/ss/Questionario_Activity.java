@@ -6,24 +6,16 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.CheckBox;
-import android.widget.SeekBar;
-import android.widget.Toast;
 
-import com.example.ss.databinding.ActivityGastosBinding;
-import com.example.ss.R;
+import com.example.ss.databinding.ActivityQuestionarioBinding;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
-
-public class Gastos_Activity extends AppCompatActivity implements View.OnClickListener {
+public class Questionario_Activity extends AppCompatActivity implements View.OnClickListener {
 
     CheckBox jogos, trabalho, edicao, web, estudo , valor1, valor2, valor3, valor4, sim, nao;
 
@@ -32,12 +24,12 @@ public class Gastos_Activity extends AppCompatActivity implements View.OnClickLi
     String  categoria1, categoria2, categoria3;
     DatabaseReference databaseReference;
     String msg = "É necesário selecionar uma das opções para que possamos prosseguir.";
-    private ActivityGastosBinding binding;
+    private ActivityQuestionarioBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityGastosBinding.inflate(getLayoutInflater());
+        binding = ActivityQuestionarioBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         getSupportActionBar().hide();
 
@@ -136,7 +128,7 @@ public class Gastos_Activity extends AppCompatActivity implements View.OnClickLi
         binding.menuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Gastos_Activity.this, PrimeirosPassos_Activity.class);
+                Intent intent = new Intent(Questionario_Activity.this, PrimeirosPassos_Activity.class);
                 startActivity(intent);
                 finish();
             }
@@ -145,7 +137,7 @@ public class Gastos_Activity extends AppCompatActivity implements View.OnClickLi
 
     private void TelaPrincipal(){
 
-        Intent intent = new Intent(Gastos_Activity.this, Rendimento_Activity.class);
+        Intent intent = new Intent(Questionario_Activity.this, ListaProdutos_Activity.class);
         startActivity(intent);
         finish();
     }
